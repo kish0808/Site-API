@@ -1,0 +1,12 @@
+<?php
+
+
+/**
+* Implements hook_theme_suggestions_HOOK_alter().
+*/
+function hook_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+$logged_in = \Drupal::currentUser()->isAuthenticated();
+if ($logged_in) {
+$suggestions[] = 'node__' . 'authenticated';
+}
+}
